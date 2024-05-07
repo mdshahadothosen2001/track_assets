@@ -12,4 +12,9 @@ urlpatterns = [
         view=include("company.urls"),
         name="company",
     ),
+    path(
+        route="api/staff/",
+        view=include("staff_api.urls"),
+        name="staff",
+    ),
 ]

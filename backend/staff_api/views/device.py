@@ -5,9 +5,18 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 
-from ..serializers.device import DeviceCreateSerializer, DeviceAssignToEmployeeSerializer
+from ..serializers.device import DeviceCreateSerializer, DeviceAssignToEmployeeSerializer, DeviceListSerializer
 from utils.custom_permission import IsStaff
 from device.models import DeviceModel
+
+
+class DeviceListView(APIView):
+    permission_classes = [IsStaff]
+
+    def get(self, request):
+        companies = DeviceModel.objects.filter(is_active=True).order_by("name")
+        serializer = DeviceListSerializer(companies, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 class DeviceCreateView(APIView):

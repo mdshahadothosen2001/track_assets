@@ -4,6 +4,12 @@ from device.models import DeviceModel
 from assign_device.models import AssignDeviceModel
 
 
+class DeviceListSerializer(ModelSerializer):
+    class Meta:
+        model = DeviceModel
+        fields = ["company", "name", "model", "handed"]
+
+
 class DeviceCreateSerializer(ModelSerializer):
     class Meta:
         model = DeviceModel

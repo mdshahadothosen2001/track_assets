@@ -11,7 +11,7 @@ class DeviceModel(CommonInfo):
     handed = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} : {self.model}"
 
     class Meta:
         verbose_name = "Device"

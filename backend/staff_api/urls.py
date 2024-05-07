@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views.staff import StaffRegistrationView
+from .views.staff import StaffRegistrationView, EmployeeAddByStaffView
 from .views.token import CustomTokenObtainPairView
 from .views.device import DeviceCreateView
 
@@ -23,5 +23,11 @@ urlpatterns = [
         route="device-add/",
         view=DeviceCreateView.as_view(),
         name="staff_device_add",
+    ),
+    # http://localhost:8000/api/staff/employee-add-by-staff/
+    path(
+        route="employee-add-by-staff/",
+        view=EmployeeAddByStaffView.as_view(),
+        name="staff_add_employee",
     ),
 ]

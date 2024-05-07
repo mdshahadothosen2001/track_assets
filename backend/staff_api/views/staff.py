@@ -44,3 +44,4 @@ class StaffRegistrationView(APIView):
                 return Response({"message":"Completed your registration process!"}, status=HTTP_201_CREATED)
 
         return Response({"message":"Incompleted registration! Please provide valid data"}, status=HTTP_400_BAD_REQUEST)
+
